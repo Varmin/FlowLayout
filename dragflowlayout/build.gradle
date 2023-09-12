@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.LightSun'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 188
+        versionName "1.8.8"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def androidX_ver='1.1.0'
+    implementation  "androidx.appcompat:appcompat:$androidX_ver"
+    implementation  "androidx.recyclerview:recyclerview:$androidX_ver"
+
+    implementation ('com.heaven7.core.util:memory:1.0.5'){
+        exclude group: 'com.android.support'
+    }
+}
+
+//apply from: "bintrayUpload.gradle"

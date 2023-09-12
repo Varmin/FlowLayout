@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        applicationId "com.varmin.flow.demo"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def androidX_ver='1.0.0'
+    implementation  "androidx.appcompat:appcompat:$androidX_ver"
+    implementation  "androidx.recyclerview:recyclerview:$androidX_ver"
+    implementation 'com.github.LightSun:SuperAdapter:2.0.9-x'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation('com.github.LightSun:util-v1:1.1.7-beta-x') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.heaven7.android.component'
+    }
+    implementation project (':dragflowlayout')
+}
