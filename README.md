@@ -16,7 +16,7 @@
 ```
 
 ```java 
-mDragflowLayout.setAdapter(new ItemAdapter<Object>() {
+mFlowLayout.setAdapter(new ItemAdapter<Object>() {
     @Override
     public int getItemLayout() {
         return R.layout.item_flow;//标签布局
@@ -31,10 +31,10 @@ mDragflowLayout.setAdapter(new ItemAdapter<Object>() {
 });
 
 //添加      
-mDragflowLayout.getDragItemManager().addItem(index, obj);
-mDragflowLayout.getDragItemManager().addItem(obj);
+mFlowLayout.getDragItemManager().addItem(index, obj);
+mFlowLayout.getDragItemManager().addItem(obj);
 //移除  
-itemManager.removeItem(index);
-itemManager.removeItem(obj);
+mFlowLayout.getDragItemManager().removeItem(index);
+mFlowLayout.getDragItemManager().removeItem(obj);
 
 ```
